@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIOS — MrPunter i Dice Palace</title>
+  <meta name="description" content="MrPunter: do 1450€ + 225 FS. Dice Palace: do 10 000€ + 300 FS. Kod CIOS." />
+  <meta name="theme-color" content="#090807" />
+  <link rel="icon" href="assets/punter-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=13" />
+  <script>
+    try {
+      if (sessionStorage.getItem("age18") === "1") document.documentElement.classList.add("age-ok");
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="photo"></span>
+    <span class="orb orb-gold"></span>
+    <span class="orb orb-orange"></span>
+    <span class="orb orb-mid"></span>
+    <canvas id="net" class="net"></canvas>
+  </div>
+
+  <div class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <div class="gate-mark" id="gate-title">18+</div>
+      <p class="gate-lead">Hazard może uzależniać. Ta strona jest tylko dla osób, które ukończyły 18 lat.</p>
+      <div class="gate-actions">
+        <button type="button" class="btn btn-gold" data-gate="enter">Wchodzę, mam 18+</button>
+        <button type="button" class="btn btn-ghost" data-gate="leave">Nie mam 18 lat</button>
+      </div>
+      <p class="gate-denied">Dostęp zamknięty. Wróć, gdy skończysz 18 lat.</p>
+    </div>
+  </div>
+
+  <main>
+    <header class="hero">
+      <div class="avatar">
+        <span class="ring" aria-hidden="true"></span>
+        <img src="assets/cios.jpg" alt="Cios" width="320" height="400" />
+      </div>
+    </header>
+
+    <section class="pair" aria-label="Bonusy">
+      <article class="card card--gold">
+        <img class="logo" src="assets/punter-logo.png" alt="MrPunter" width="150" height="28" />
+        <p class="eyebrow">Total Bonus Casino</p>
+        <h2>do 1450€ <small>+ 225 FS</small></h2>
+        <ul class="stats">
+          <li><b>120%</b><span>600€</span></li>
+          <li><b>100%</b><span>300€</span></li>
+          <li><b>70%</b><span>350€</span></li>
+          <li><b>70%</b><span>200€</span></li>
+        </ul>
+        <div class="row">
+          <button type="button" class="code" data-copy="CIOS">
+            <span class="copy-label">CIOS</span>
+            <span class="copy-done">OK</span>
+          </button>
+          <a class="btn btn-gold" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer">Odbierz</a>
+        </div>
+      </article>
+
+      <article class="card card--palace">
+        <span class="logo-palace">
+          <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
+        </span>
+        <p class="eyebrow">Pakiet powitalny</p>
+        <h2>do 10 000€ <small>+ 300 FS</small></h2>
+        <ul class="stats">
+          <li><b>100%</b><span>2500€</span></li>
+          <li><b>100%</b><span>2500€</span></li>
+          <li><b>50%</b><span>2500€</span></li>
+          <li><b>50%</b><span>2500€</span></li>
+        </ul>
+        <div class="row">
+          <button type="button" class="code" data-copy="CIOS">
+            <span class="copy-label">CIOS</span>
+            <span class="copy-done">OK</span>
+          </button>
+          <a class="btn btn-palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Odbierz</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="split" aria-hidden="true"><span></span></div>
+
+    <footer class="footer">
+      <div class="footer-head">
+        <span class="age">18+</span>
+        <div>
+          <strong>Graj odpowiedzialnie</strong>
+          <p>Hazard może uzależniać. Strona jest tylko dla osób, które ukończyły 18 lat.</p>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <section>
+          <h3>Regulamin</h3>
+          <ul>
+            <li>Cios nie prowadzi gier. To strona partnerska MrPunter i Dice Palace.</li>
+            <li>Bonus działa po rejestracji u operatora i na jego warunkach.</li>
+            <li>Kod CIOS podajesz przy koncie. Bez kodu oferta może nie wejść.</li>
+            <li>Kwoty na kafelkach to górne progi, nie gotówka wypłacana od razu.</li>
+            <li>Obrót, limity i wypłata są w regulaminie operatora.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Bonusy</h3>
+          <ul>
+            <li>MrPunter: do 1450€ + 225 FS na pierwsze 4 depozyty. Start to 120% do 600€ i 125 FS.</li>
+            <li>Dice Palace: do 10 000€ + 300 FS na pierwsze 4 depozyty. Start to 100% do 2500€ i 100 FS.</li>
+            <li>Jedna oferta na konto. Operator może odmówić bonusu.</li>
+          </ul>
+        </section>
+      </div>
+
+      <p class="copy">2026 © Cios. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
