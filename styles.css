@@ -555,63 +555,106 @@ html.age-ok .gate {
 }
 
 @media (max-width: 720px) {
+  main {
+    width: min(860px, calc(100% - 16px));
+    padding: 18px 0 22px;
+  }
+
   .pair {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
   .avatar {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
   }
 
   .hero {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .card {
-    padding: 16px 12px 12px;
-    border-radius: 18px;
+    min-width: 0;
+    padding: 12px 8px 10px;
+    border-radius: 16px;
   }
 
   .logo {
-    width: 104px;
-    margin-bottom: 12px;
+    width: 88px;
+    margin-bottom: 10px;
   }
 
   .logo-palace {
-    width: 248px;
-    height: 104px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 638 / 268;
+    margin-bottom: 8px;
   }
 
   .logo-palace img {
-    width: 466px;
-    height: 245px;
-    left: -112px;
-    top: -65px;
+    width: 188.09%;
+    height: 235.07%;
+    left: -45.14%;
+    top: -62.69%;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.06em;
   }
 
   h2 {
-    font-size: 26px;
+    font-size: clamp(16px, 4.6vw, 24px);
+    letter-spacing: -0.05em;
+  }
+
+  h2 small {
+    margin-top: 3px;
   }
 
   .stats {
     grid-template-columns: 1fr 1fr;
     gap: 4px;
-    margin-top: 12px;
+    margin-top: 10px;
+  }
+
+  .stats li {
+    padding: 6px 2px;
+    border-radius: 10px;
   }
 
   .stats b {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .stats span {
+    font-size: 10px;
   }
 
   .row {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 6px;
+    padding-top: 10px;
   }
 
   .code,
   .btn {
-    width: 100%;
+    width: auto;
+    min-height: 34px;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+
+  .code {
+    min-width: 0;
+    letter-spacing: 0.08em;
+  }
+
+  .footer {
+    padding: 14px 12px 12px;
   }
 
   .footer-grid {
