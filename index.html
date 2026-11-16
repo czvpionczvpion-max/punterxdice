@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
@@ -10,14 +10,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=16" />
   <script>
+    document.documentElement.classList.add("js");
     try {
       if (sessionStorage.getItem("age18") === "1") document.documentElement.classList.add("age-ok");
     } catch (e) {}
   </script>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="currentColor"/></symbol>
+  </svg>
+
   <div class="bg" aria-hidden="true">
     <span class="photo"></span>
     <span class="orb orb-gold"></span>
@@ -39,58 +47,102 @@
   </div>
 
   <main>
-    <header class="hero">
+    <header class="hero reveal">
       <div class="avatar">
         <span class="ring" aria-hidden="true"></span>
         <img src="assets/cios.jpg" alt="Cios" width="320" height="400" />
       </div>
+      <span class="live"><i aria-hidden="true"></i>Oferty aktywne</span>
+      <h1 class="title">CIOS</h1>
+      <p class="lead">Najmocniejsze pakiety powitalne z moim kodem</p>
+      <ul class="totals">
+        <li><b><span data-count="11450">11 450</span>€</b><span>w bonusach</span></li>
+        <li><b><span data-count="525">525</span> FS</b><span>darmowych spinów</span></li>
+        <li>
+          <button type="button" class="totals-code" data-copy="CIOS" aria-label="Kopiuj kod CIOS">
+            <b>CIOS <svg><use href="#i-copy" /></svg></b>
+            <span class="copy-label">kopiuj kod</span>
+            <span class="copy-done">skopiowano</span>
+          </button>
+        </li>
+      </ul>
     </header>
 
     <section class="pair" aria-label="Bonusy">
-      <article class="card card--gold">
-        <img class="logo" src="assets/punter-logo.png" alt="MrPunter" width="150" height="28" />
+      <article class="card card--gold reveal">
+        <span class="badge">Hot</span>
+        <span class="sparks" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="brand">
+          <img class="logo" src="assets/punter-logo.png" alt="MrPunter" width="150" height="28" />
+        </div>
         <p class="eyebrow">Total Bonus Casino</p>
-        <h2>do 1450€ <small>+ 225 FS</small></h2>
-        <ul class="stats">
-          <li><b>120%</b><span>600€</span></li>
-          <li><b>100%</b><span>300€</span></li>
-          <li><b>70%</b><span>350€</span></li>
-          <li><b>70%</b><span>200€</span></li>
-        </ul>
+        <h2 class="amount"><span class="upto">do</span><span data-count="1450">1450</span>€</h2>
+        <span class="fs"><svg><use href="#i-star" /></svg>+ <span data-count="225">225</span> FS</span>
+        <ol class="stats">
+          <li><i>1. dep</i><b>120%</b><span>600€</span></li>
+          <li><i>2. dep</i><b>100%</b><span>300€</span></li>
+          <li><i>3. dep</i><b>70%</b><span>350€</span></li>
+          <li><i>4. dep</i><b>70%</b><span>200€</span></li>
+        </ol>
+        <p class="perk"><svg><use href="#i-check" /></svg>Start: 120% do 600€ + 125 FS</p>
         <div class="row">
-          <button type="button" class="code" data-copy="CIOS">
+          <button type="button" class="code" data-copy="CIOS" aria-label="Kopiuj kod CIOS">
+            <span class="code-key">Kod</span>
             <span class="copy-label">CIOS</span>
             <span class="copy-done">OK</span>
+            <svg><use href="#i-copy" /></svg>
           </button>
-          <a class="btn btn-gold" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer">Odbierz</a>
+          <a class="btn btn-gold btn-cta" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer">Odbierz<svg><use href="#i-arrow" /></svg></a>
         </div>
       </article>
 
-      <article class="card card--palace">
-        <span class="logo-palace">
-          <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
-        </span>
+      <article class="card card--palace reveal">
+        <span class="badge">VIP</span>
+        <span class="sparks" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="brand">
+          <span class="logo-palace">
+            <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
+          </span>
+        </div>
         <p class="eyebrow">Pakiet powitalny</p>
-        <h2>do 10 000€ <small>+ 300 FS</small></h2>
-        <ul class="stats">
-          <li><b>100%</b><span>2500€</span></li>
-          <li><b>100%</b><span>2500€</span></li>
-          <li><b>50%</b><span>2500€</span></li>
-          <li><b>50%</b><span>2500€</span></li>
-        </ul>
+        <h2 class="amount"><span class="upto">do</span><span data-count="10000">10 000</span>€</h2>
+        <span class="fs"><svg><use href="#i-star" /></svg>+ <span data-count="300">300</span> FS</span>
+        <ol class="stats">
+          <li><i>1. dep</i><b>100%</b><span>2500€</span></li>
+          <li><i>2. dep</i><b>100%</b><span>2500€</span></li>
+          <li><i>3. dep</i><b>50%</b><span>2500€</span></li>
+          <li><i>4. dep</i><b>50%</b><span>2500€</span></li>
+        </ol>
+        <p class="perk"><svg><use href="#i-check" /></svg>Start: 100% do 2500€ + 100 FS</p>
         <div class="row">
-          <button type="button" class="code" data-copy="CIOS">
+          <button type="button" class="code" data-copy="CIOS" aria-label="Kopiuj kod CIOS">
+            <span class="code-key">Kod</span>
             <span class="copy-label">CIOS</span>
             <span class="copy-done">OK</span>
+            <svg><use href="#i-copy" /></svg>
           </button>
-          <a class="btn btn-palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Odbierz</a>
+          <a class="btn btn-palace btn-cta" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Odbierz<svg><use href="#i-arrow" /></svg></a>
         </div>
       </article>
     </section>
 
-    <div class="split" aria-hidden="true"><span></span></div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Kod <b>CIOS</b></span><span>MrPunter <b>do 1450€</b></span><span><b>225 FS</b></span><span>Dice Palace <b>do 10 000€</b></span><span><b>300 FS</b></span><span>Start <b>120%</b></span>
+        <span>Kod <b>CIOS</b></span><span>MrPunter <b>do 1450€</b></span><span><b>225 FS</b></span><span>Dice Palace <b>do 10 000€</b></span><span><b>300 FS</b></span><span>Start <b>120%</b></span>
+      </div>
+    </div>
 
-    <footer class="footer">
+    <section class="how reveal" aria-labelledby="how-title">
+      <h3 class="section-title" id="how-title">Jak odebrać bonus</h3>
+      <ol>
+        <li><span class="num">1</span><b>Wybierz kasyno</b><p>Kliknij „Odbierz” przy ofercie.</p></li>
+        <li><span class="num">2</span><b>Wpisz kod CIOS</b><p>Podaj go przy zakładaniu konta.</p></li>
+        <li><span class="num">3</span><b>Wpłać depozyt</b><p>Bonus wpada na warunkach operatora.</p></li>
+      </ol>
+    </section>
+
+    <footer class="footer reveal">
       <div class="footer-head">
         <span class="age">18+</span>
         <div>
@@ -124,6 +176,20 @@
     </footer>
   </main>
 
-  <script src="script.js"></script>
+  <nav class="dock" aria-label="Szybki dostęp do bonusów">
+    <button type="button" class="dock-code" data-copy="CIOS" aria-label="Kopiuj kod CIOS">
+      <span class="copy-label">CIOS</span>
+      <span class="copy-done">OK</span>
+      <svg><use href="#i-copy" /></svg>
+    </button>
+    <a class="dock-btn dock-btn--gold" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer">MrPunter<svg><use href="#i-arrow" /></svg></a>
+    <a class="dock-btn dock-btn--palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Dice Palace<svg><use href="#i-arrow" /></svg></a>
+  </nav>
+
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <div class="toast" role="status" aria-live="polite"><svg><use href="#i-check" /></svg>Skopiowano kod <b>CIOS</b></div>
+
+  <script src="script.js?v=16"></script>
 </body>
 </html>
