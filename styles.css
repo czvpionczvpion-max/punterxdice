@@ -791,6 +791,24 @@ html.age-ok .gate {
 }
 
 @media (max-width: 720px) {
+  .scene-room {
+    background:
+      radial-gradient(ellipse 62% 44% at 50% 30%, rgba(7, 6, 11, 0.88) 0%, rgba(7, 6, 11, 0.45) 48%, transparent 74%),
+      linear-gradient(180deg, rgba(7, 6, 11, 0.18) 0%, transparent 20%, rgba(7, 6, 11, 0.28) 58%, rgba(7, 6, 11, 0.9) 88%, var(--ink) 100%),
+      url("assets/casino-bg.jpg") 6% 12% / 190% auto no-repeat;
+    opacity: 1;
+    filter: saturate(1.18) contrast(1.08) brightness(1.08);
+  }
+
+  .aurora {
+    opacity: 0.32;
+  }
+
+  .veil {
+    background:
+      linear-gradient(180deg, rgba(7, 6, 11, 0.12) 0%, transparent 14%, transparent 48%, rgba(7, 6, 11, 0.5) 78%, var(--ink) 100%);
+  }
+
   .wrap {
     width: min(var(--max), calc(100% - 28px));
   }
@@ -802,6 +820,8 @@ html.age-ok .gate {
   .topbar {
     justify-content: center;
     min-height: 72px;
+    background: linear-gradient(180deg, rgba(7, 6, 11, 0.72), rgba(7, 6, 11, 0.28));
+    border-bottom-color: transparent;
   }
 
   .punter-logo {
