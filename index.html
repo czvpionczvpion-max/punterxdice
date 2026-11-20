@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Cios — MrPunter i Dice Palace · kod CIOS</title>
-  <meta name="description" content="Kod CIOS: MrPunter do 1 450€ + 225 FS oraz Dice Palace do 10 000€ + 300 FS." />
-  <meta name="theme-color" content="#0e0c12" />
+  <title>CIOS — MrPunter i Dice Palace</title>
+  <meta name="description" content="Kod CIOS: MrPunter do 1 450€ + 225 FS oraz Dice Palace do 10 000€ + 300 FS. Bonus na pierwsze cztery depozyty." />
+  <meta name="theme-color" content="#07060b" />
   <link rel="icon" href="assets/punter-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=27" />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=34" />
   <script>
     try {
       if (sessionStorage.getItem("age18") === "1") document.documentElement.classList.add("age-ok");
@@ -18,179 +18,167 @@
   </script>
 </head>
 <body>
-  <svg class="sprite" aria-hidden="true">
-    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3.2v2.2M12 18.6v2.2M3.2 12h2.2M18.6 12h2.2"/>
-      <path d="M12 8.1l1.05 2.15 2.35.34-1.7 1.66.4 2.35L12 13.5l-2.1 1.1.4-2.35-1.7-1.66 2.35-.34z"/>
-    </symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="8" y="8" width="11" height="12" rx="2"/>
-      <path d="M6 16H5.2A2.2 2.2 0 0 1 3 13.8V5.2A2.2 2.2 0 0 1 5.2 3h8.6A2.2 2.2 0 0 1 16 5.2V6"/>
-    </symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
-    </symbol>
-    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="3.2"/>
-      <path d="M5 19.2c.8-3.2 3.2-4.8 7-4.8s6.2 1.6 7 4.8"/>
-    </symbol>
-    <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h11A2.5 2.5 0 0 1 20 8.5v1.2a2 2 0 0 0 0 4v1.8A2.5 2.5 0 0 1 17.5 18h-11A2.5 2.5 0 0 1 4 15.5v-1.8a2 2 0 0 0 0-4z"/>
-      <path d="M12 9v6"/>
-    </symbol>
-    <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3.2" y="6" width="17.6" height="12.5" rx="2.2"/>
-      <path d="M3.2 10h17.6"/>
-      <circle cx="16.4" cy="14.2" r="1" fill="currentColor" stroke="none"/>
-    </symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3.4 19 6v6.1c0 4.1-2.7 6.6-7 8.2-4.3-1.6-7-4.1-7-8.2V6z"/>
-      <path d="M8.8 12.1 11 14.3l4.2-4.4"/>
-    </symbol>
-  </svg>
+  <div class="scene" aria-hidden="true">
+    <div class="scene-room"></div>
+    <div class="aurora"></div>
+    <div class="veil"></div>
+    <canvas id="bg-anim" class="bg-anim"></canvas>
+  </div>
 
   <div class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
     <div class="gate-card">
-      <div class="gate-mark" id="gate-title">18+</div>
+      <p class="gate-mark" id="gate-title">18+</p>
       <p class="gate-lead">Hazard może uzależniać. Ta strona jest tylko dla osób, które ukończyły 18 lat.</p>
       <div class="gate-actions">
         <button type="button" class="btn" data-gate="enter">Wchodzę, mam 18+</button>
-        <button type="button" class="btn ghost" data-gate="leave">Nie mam 18 lat</button>
+        <button type="button" class="btn btn--ghost" data-gate="leave">Nie mam 18 lat</button>
       </div>
       <p class="gate-denied">Dostęp zamknięty. Wróć, gdy skończysz 18 lat.</p>
     </div>
   </div>
 
-  <header class="header">
-    <div class="header-inner">
-      <a class="brand" href="#bonusy">
-        <span class="brand-name">Cios</span>
-      </a>
-      <div class="header-actions">
-        <span class="age-pill">18+</span>
-        <button class="btn btn-header" type="button" data-copy="CIOS">
-          <span class="copy-label label-long">Kopiuj CIOS</span>
-          <span class="copy-label label-short">CIOS</span>
-          <span class="copy-done">OK</span>
-          <svg class="ico" aria-hidden="true"><use href="#i-copy"></use></svg>
-        </button>
-      </div>
-    </div>
+  <header class="topbar">
+    <a class="brand" href="#kasyna" aria-label="CIOS — MrPunter i Dice Palace">
+      <img class="punter-logo" src="assets/punter-logo.png" alt="MrPunter" width="640" height="120" />
+      <span class="brand-x" aria-hidden="true">×</span>
+      <span class="palace">
+        <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Kasyna">
+      <a class="btn btn--sm theme-punter" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer sponsored">MrPunter</a>
+      <a class="btn btn--sm theme-palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Dice Palace</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="wrap hero">
-      <p class="eyebrow">
-        <svg class="ico" aria-hidden="true"><use href="#i-spark"></use></svg>
-        Oferta na start
-      </p>
-      <h1>Kod CIOS.<br><span>Dwa kasyna.</span></h1>
-      <p class="lead">Wybierz MrPunter albo Dice Palace, wpisz <strong>CIOS</strong> przy koncie i odbierz pakiet na pierwsze cztery depozyty.</p>
-      <div class="hero-actions">
-        <button class="code-chip" type="button" data-copy="CIOS">
-          <small>Kod promocyjny</small>
-          <strong>
-            <span class="copy-label">CIOS</span>
-            <span class="copy-done">OK</span>
-            <svg class="ico" aria-hidden="true"><use href="#i-copy"></use></svg>
-          </strong>
-        </button>
+  <main id="top">
+    <section class="stage wrap" id="kasyna" aria-labelledby="picks-title">
+      <div class="portrait">
+        <span class="portrait-ring" aria-hidden="true"></span>
+        <img src="assets/cios.jpg" alt="CIOS" width="900" height="1200" />
       </div>
-      <p class="copy-note" id="copyNote" role="status"></p>
+      <div class="lock">
+        <h1 id="picks-title">Wybierz kasyno</h1>
+        <p class="section-lead">Pakiety są różne. Kod pod spodem jest ten sam.</p>
+        <div class="pick-grid">
+        <article class="pick theme-punter" id="mrpunter">
+          <div class="pick-brand">
+            <img class="punter-logo punter-logo--card" src="assets/punter-logo.png" alt="MrPunter" width="640" height="120" />
+          </div>
+          <p class="pick-kicker">Pakiet do</p>
+          <p class="pick-sum">1&nbsp;450€</p>
+          <p class="pick-fs">+ 225 FS</p>
+          <p class="pick-note">Na start 120% do 600€ i 125 FS.</p>
+          <a class="btn" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer sponsored">Odbierz bonus</a>
+        </article>
+        <article class="pick theme-palace" id="dicepalace">
+          <div class="pick-brand">
+            <span class="palace palace--card">
+              <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
+            </span>
+          </div>
+          <p class="pick-kicker">Pakiet do</p>
+          <p class="pick-sum">10&nbsp;000€</p>
+          <p class="pick-fs">+ 300 FS</p>
+          <p class="pick-note">Na start 100% do 2&nbsp;500€ i 100 FS.</p>
+          <a class="btn" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Odbierz bonus</a>
+        </article>
+        </div>
+        <div class="code-join">
+          <div class="ticket">
+            <div class="ticket-copy">
+              <span class="ticket-label" id="code-label">Kod do obu</span>
+              <span class="ticket-code" id="promo-code">CIOS</span>
+            </div>
+            <button type="button" class="btn btn--ghost btn--sm" data-copy="CIOS" aria-describedby="code-label">
+              <span class="copy-label">Kopiuj</span>
+              <span class="copy-done">Skopiowano</span>
+            </button>
+          </div>
+          <p class="copy-status" id="copyStatus" role="status"></p>
+        </div>
+      </div>
     </section>
 
-    <section class="wrap offers" id="bonusy" aria-label="Bonusy">
-      <article class="offer offer--punter">
-        <div class="offer-brand">
-          <img class="logo-punter" src="assets/punter-logo.png" alt="MrPunter" width="150" height="28" />
-        </div>
-        <p class="offer-kicker">Total bonus</p>
-        <h2><small>do</small>1 450€</h2>
-        <p class="offer-fs">+ 225 FS</p>
-        <a class="btn offer-btn claim claim--punter" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer"><span>Odbierz bonus</span></a>
-      </article>
-
-      <article class="offer offer--palace">
-        <div class="offer-brand">
-          <span class="logo-palace">
-            <img src="assets/Dice-Palace-logo-1200x630sh.png" alt="Dice Palace" width="1200" height="630" />
-          </span>
-        </div>
-        <p class="offer-kicker">Pakiet powitalny</p>
-        <h2><small>do</small>10 000€</h2>
-        <p class="offer-fs">+ 300 FS</p>
-        <a class="btn offer-btn claim claim--palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored"><span>Odbierz bonus</span></a>
-      </article>
+    <section class="start wrap" aria-labelledby="start-title">
+      <h2 id="start-title">Na pierwszy depozyt</h2>
+      <div class="start-grid">
+        <article class="theme-punter">
+          <p class="start-who">MrPunter</p>
+          <p class="start-num">120%</p>
+          <p class="start-line">do 600€ i 125 FS</p>
+          <p class="start-rest">Cały pakiet dochodzi do 1&nbsp;450€ i 225 FS.</p>
+        </article>
+        <article class="theme-palace">
+          <p class="start-who">Dice Palace</p>
+          <p class="start-num">100%</p>
+          <p class="start-line">do 2&nbsp;500€ i 100 FS</p>
+          <p class="start-rest">Cały pakiet dochodzi do 10&nbsp;000€ i 300 FS.</p>
+        </article>
+      </div>
     </section>
 
-    <figure class="wrap hero-art">
-      <img src="assets/cios.jpg" alt="Cios" width="900" height="1200" />
-    </figure>
-
-    <section class="wrap steps" aria-label="Jak odebrać">
-      <article class="step">
-        <div class="step-top">
-          <svg class="ico" aria-hidden="true"><use href="#i-user"></use></svg>
+    <section class="steps wrap" id="jak" aria-labelledby="steps-title">
+      <h2 id="steps-title">Jak odebrać</h2>
+      <ol class="step-list">
+        <li>
           <span class="step-num">01</span>
-        </div>
-        <h3>Wybierz kasyno</h3>
-        <p>MrPunter albo Dice Palace. Przycisk Odbierz bonus otwiera rejestrację.</p>
-      </article>
-      <article class="step">
-        <div class="step-top">
-          <svg class="ico" aria-hidden="true"><use href="#i-ticket"></use></svg>
+          <h3>Wybierz kasyno</h3>
+          <p>MrPunter albo Dice Palace. Przycisk otwiera rejestrację u operatora.</p>
+        </li>
+        <li>
           <span class="step-num">02</span>
-        </div>
-        <h3>Wpisz CIOS</h3>
-        <p>Podaj kod przy zakładaniu konta. Bez kodu oferta może nie wejść.</p>
-      </article>
-      <article class="step">
-        <div class="step-top">
-          <svg class="ico" aria-hidden="true"><use href="#i-wallet"></use></svg>
+          <h3>Wpisz CIOS</h3>
+          <p>Wklej kod przy koncie. Bez kodu pakiet może nie wejść.</p>
+        </li>
+        <li>
           <span class="step-num">03</span>
+          <h3>Zrób depozyt</h3>
+          <p>Pierwsza wpłata uruchamia bonus startowy. Kolejne trzy dokładają resztę pakietu.</p>
+        </li>
+        <li>
+          <span class="step-num">04</span>
+          <h3>Sprawdź warunki</h3>
+          <p>Obrót, limity i wypłata są w regulaminie operatora. Kwota na stronie to górny próg.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="close wrap" aria-labelledby="close-title">
+      <div class="close-panel">
+        <h2 id="close-title">Masz kod. Wybierz kasyno.</h2>
+        <p class="section-lead">CIOS działa w MrPunter i w Dice Palace.</p>
+        <div class="close-actions">
+          <a class="btn theme-punter" href="https://mrp.kronvax.com/?mid=391592_2258861" target="_blank" rel="noopener noreferrer sponsored">Odbierz w MrPunter</a>
+          <a class="btn theme-palace" href="https://dcpc.myloric.com/?mid=391593_2257594" target="_blank" rel="noopener noreferrer sponsored">Odbierz w Dice Palace</a>
         </div>
-        <h3>Wpłać depozyt</h3>
-        <p>Bonus wchodzi na warunkach operatora, na pierwsze cztery wpłaty.</p>
-      </article>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand">Cios <b>kod CIOS</b></div>
-          <p class="footer-desc">Strona partnerska. Cios nie prowadzi gier. Bonus działa po rejestracji u operatora i na jego warunkach.</p>
-          <div class="trust">
-            <span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg> 18+ graj odpowiedzialnie</span>
-          </div>
-        </div>
-        <div>
-          <h4>Regulamin</h4>
-          <ul>
-            <li>Kod CIOS podajesz przy koncie.</li>
-            <li>Kwoty na kafelkach to górne progi, nie gotówka wypłacana od razu.</li>
-            <li>Obrót, limity i wypłata są w regulaminie operatora.</li>
-            <li>Jedna oferta na konto. Operator może odmówić bonusu.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Bonusy</h4>
-          <ul>
-            <li>MrPunter: do 1 450€ + 225 FS. Start to 120% do 600€ i 125 FS.</li>
-            <li>Dice Palace: do 10 000€ + 300 FS. Start to 100% do 2 500€ i 100 FS.</li>
-            <li><a class="text-link" href="https://www.begambleaware.org" target="_blank" rel="noopener">GambleAware</a></li>
-          </ul>
-        </div>
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-name">CIOS</p>
+        <p class="footer-desc">Strona partnerska. Cios nie prowadzi gier. Bonus przyznaje operator, na swoim regulaminie.</p>
       </div>
-      <div class="footer-bottom">
-        <span>2026 © Cios</span>
-        <span>Tylko 18+</span>
-      </div>
-      <p class="warning">Hazard może uzależniać. Graj odpowiedzialnie. Obowiązuje regulamin bonusu operatora.</p>
+      <ul>
+        <li>Kod CIOS podajesz przy koncie.</li>
+        <li>Jedna oferta na konto. Operator może odmówić bonusu.</li>
+        <li>MrPunter: do 1&nbsp;450€ + 225 FS. Start: 120% do 600€ i 125 FS.</li>
+        <li>Dice Palace: do 10&nbsp;000€ + 300 FS. Start: 100% do 2&nbsp;500€ i 100 FS.</li>
+      </ul>
+    </div>
+    <div class="wrap footer-base">
+      <span class="age" aria-label="Tylko dla osób pełnoletnich">18+</span>
+      <p class="legal">
+        Hazard może uzależniać. Graj odpowiedzialnie. Oferta wyłącznie dla osób pełnoletnich.
+        <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer">GambleAware</a>
+      </p>
+      <p class="copy">2026 © CIOS</p>
     </div>
   </footer>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=19"></script>
 </body>
 </html>
